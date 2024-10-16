@@ -6,6 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <meta property="og:title" content="My website title" />
+    <meta property="og:description" content="Summary of the contents of the page you are viewing" />
+    <meta property="og:image" content="{{ url_for('static', filename='ogimage.png') }}" />
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -87,7 +91,7 @@
         $(document).ready(function () {
             show_bucket();
         });
-    
+
         function show_bucket() {
             $('#bucket-list').empty();
             $.ajax({
@@ -101,7 +105,7 @@
                         let num = rows[i]['num'];
                         let done = rows[i]['done'];
                         let temp_html = '';
-    
+
                         if (done === 0) {
                             temp_html = ` 
                             <li>
@@ -121,7 +125,7 @@
                 }
             });
         }
-    
+
         function save_bucket() {
             let bucket = $('#bucket').val();
             $.ajax({
@@ -134,7 +138,7 @@
                 }
             });
         }
-    
+
         function done_bucket(num) {
             $.ajax({
                 type: "POST",
@@ -146,7 +150,7 @@
                 }
             });
         }
-    
+
         // Fungsi untuk menghapus item dari bucket list
         function delete_bucket(num) {
             $.ajax({
@@ -160,7 +164,7 @@
             });
         }
     </script>
-    
+
 </head>
 
 <body>
